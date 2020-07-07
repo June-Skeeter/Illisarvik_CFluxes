@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd 
 from sklearn.preprocessing import StandardScaler, Normalizer, MinMaxScaler
-from sklearn.externals import joblib
+import joblib
 import os
 
 class ReadStandardTimeFill:#[1e-6 * 44.0095 *3600,1e-3 * 16.04246 *3600]
@@ -51,7 +51,8 @@ class ReadStandardTimeFill:#[1e-6 * 44.0095 *3600,1e-3 * 16.04246 *3600]
         else:
             self.XScaled = joblib.load(ScalePath+'X_scaler.save') 
         # self.XScaled = XStandard.fit(X)
-        self.X = self.XScaled.transform(X)
+        # print(ScalePath,X)
+        self.X = self.XScaled.transform(X.values,copy=True)
         if fillTarget is None:
             Filling = self.Master[X_vars]
         else:

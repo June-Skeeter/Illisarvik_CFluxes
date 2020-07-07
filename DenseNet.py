@@ -8,7 +8,7 @@ from functools import partial
 import keras.backend as K
 from keras.models import model_from_json
 from sklearn.preprocessing import StandardScaler,MinMaxScaler,normalize
-from sklearn.externals import joblib
+import joblib
 from sklearn import metrics
 from sklearn.utils import resample
 
